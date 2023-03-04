@@ -44,12 +44,9 @@ class MainPage(Base):
     # Methods
 
     def select_category(self):
-        self.driver.get(self.url)
-        self.driver.delete_all_cookies()
-        self.driver.maximize_window()
         self.get_current_url()
         self.click_button_catalog()
         self.click_category_link()
         time.sleep(3)
         self.assert_url('https://www.regard.ru/catalog/1537/kompyutery-i-noutbuki')
-        self.get_screenshot()
+        # self.get_screenshot()

@@ -72,5 +72,4 @@ class LoginPage(Base):
         self.click_login_button()
         time.sleep(3)
         self.assert_url('https://www.regard.ru/profile')
-        self.get_screenshot()
-        time.sleep(10)
+        # self.get_screenshot()
