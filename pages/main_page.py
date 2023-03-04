@@ -44,6 +44,8 @@ class MainPage(Base):
     # Methods
 
     def select_category(self):
+        self.driver.get(self.url)
+        self.driver.delete_all_cookies()
         self.get_current_url()
         self.click_button_catalog()
         self.click_category_link()
