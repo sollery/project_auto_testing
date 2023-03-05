@@ -1,3 +1,4 @@
+from pages.cart_page import CartPage
 from pages.product_page import ProductPage
 import time
 import pytest
@@ -18,9 +19,17 @@ def test_product_add_to_cart():
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     g = Service('C:\\resource\\chromedriver.exe')
     driver = webdriver.Chrome(service=g, options=options)
+    driver.delete_all_cookies()
+    login = LoginPage(driver)
+    login.authorization()
+    cart_page = CartPage(driver)
+    # cart_page.clear_cart()
     main_page = MainPage(driver)
     main_page.select_category()
     catalog_page = CatalogPage(driver)
     catalog_page.select_product_filters()
     product_page = ProductPage(driver)
     product_page.product_add_to_cart()
+    cart_page.filling_inputs()
+    cart_page.clear_cart()
+    time.sleep(10)

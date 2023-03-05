@@ -7,6 +7,7 @@ class Base:
     def __init__(self, driver):
         self.driver = driver
 
+
     """Method get current url"""
 
     def get_current_url(self):
@@ -39,4 +40,8 @@ class Base:
     def press_enter(self,name_input):
         name_input.send_keys(Keys.RETURN)
         print('click enter')
+
+
+
+
 
