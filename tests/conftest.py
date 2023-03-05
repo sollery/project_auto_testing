@@ -12,17 +12,15 @@ from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 
 
-def test_authorization(driver):
-    login = LoginPage(driver)
-    login.authorization()
-
-
-def test_logout(driver):
-    login = LoginPage(driver)
-    login.authorization()
-    profile_page = ProfilePage(driver)
-    profile_page.logout_s()
-
-
-
+@pytest.fixture(scope="function")
+def driver():
+    options = Options()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    g = Service('C:\\resource\\chromedriver.exe')
+    driver = webdriver.Chrome(service=g, options=options)
+    driver.delete_all_cookies()
+    print("\nstart chrome browser for test..")
+    yield driver
+    print("\nquit browser..")
+    driver.quit()
 

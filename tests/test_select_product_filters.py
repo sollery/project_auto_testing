@@ -12,11 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 
-def test_select_product_filters():
-    options = Options()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    g = Service('C:\\resource\\chromedriver.exe')
-    driver = webdriver.Chrome(service=g, options=options)
+
+
+def test_select_product_filters(driver):
     login = LoginPage(driver)
     login.authorization()
     main_page = MainPage(driver)

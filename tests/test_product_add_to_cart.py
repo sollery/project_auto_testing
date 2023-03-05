@@ -14,12 +14,7 @@ from pages.login_page import LoginPage
 from selenium.webdriver.chrome.options import Options
 
 
-def test_product_add_to_cart():
-    options = Options()
-    options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    g = Service('C:\\resource\\chromedriver.exe')
-    driver = webdriver.Chrome(service=g, options=options)
-    driver.delete_all_cookies()
+def test_product_add_to_cart(driver):
     login = LoginPage(driver)
     login.authorization()
     cart_page = CartPage(driver)
