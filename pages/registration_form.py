@@ -25,6 +25,7 @@ class RegistrationForm(Base):
     password_form = '//*[@id="AUTHORIZATION_MODAL_WRAPPER"]/form/div[4]/div[1]/input[2]'
     password_confirmation_form = '//*[@id="AUTHORIZATION_MODAL_WRAPPER"]/form/div[5]/div/input[2]'
     submit_registration = '//*[@id="AUTHORIZATION_MODAL_WRAPPER"]/form/button'
+    button_show_password = '//*[@id="AUTHORIZATION_MODAL_WRAPPER"]/form/div[4]/div[1]/div'
 
     # Getters
 
@@ -59,6 +60,10 @@ class RegistrationForm(Base):
     def get_submit_registration(self):
         return WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, self.submit_registration)))
+
+    def get_button_show_password(self):
+        return WebDriverWait(self.driver, 30).until(
+            EC.element_to_be_clickable((By.XPATH, self.button_show_password)))
     
     
 
@@ -96,6 +101,11 @@ class RegistrationForm(Base):
         self.get_submit_registration().click()
         print('Click submit registration')
 
+    def click_button_show_password(self):
+        self.get_button_show_password().click()
+        print('Click button show password')
+
+
     # Methods
 
     def registration(self):
@@ -111,4 +121,14 @@ class RegistrationForm(Base):
         self.input_password_confirmation_form('111111aA')
         self.click_submit_registration()
 
+
+    def show_password(self):
+        self.driver.get(self.url)
+        self.driver.maximize_window()
+        self.get_current_url()
+        self.click_link_private_office()
+        self.click_button_registration()
+        self.input_password_form('111111aA')
+        self.click_button_show_password()
+        self.get_screenshot()
         # self.get_screenshot()

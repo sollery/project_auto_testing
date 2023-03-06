@@ -12,3 +12,10 @@ def test_registration(driver):
     reg_form = RegistrationForm(driver)
     reg_form.registration()
     time.sleep(10)
+
+
+def test_show_password(driver):
+    reg_form = RegistrationForm(driver)
+    reg_form.show_password()
+
+
