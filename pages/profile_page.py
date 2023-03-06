@@ -15,7 +15,7 @@ class ProfilePage(Base):
         super().__init__(driver)
         self.driver = driver
 
-    # locators
+    #
     link_private_office = '//*[@id="__next"]/div/div/div/div/div/div/div[1]/div/div[2]/div[1]/a/div'
     button_logout = '//*[@id="__next"]/div/div/main/div/div[2]/div/div/div/div[1]/div/div/div/div/a[1]'
     button_personal_data = '//*[@id="__next"]/div/div/main/div/div[2]/div/div/div/div[1]/div/div/div/div/a[2]'
